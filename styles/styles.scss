@@ -1,0 +1,1106 @@
+@mixin flex-center($dir: row, $align: center,
+$justify: center) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+$border: 1px solid white;
+$secondary-color: #B2B9F8;
+$lg-txt-size: 20px;
+$md-txt-size: 15px;
+$lg-title-size: 28px;
+$top-margin: 20em;
+
+@font-face {
+    font-family: 'PT Sans Caption';
+    src: url(/Assets\PT_Sans_Caption\PTSansCaption-Regular.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'PT Sans Caption bold';
+    src: url(/Assets\PT_Sans_Caption\PTSansCaption-Bold.ttf) format('ttf');
+}
+
+h1, h2, h3 {
+    font-weight: 550;
+    font-family: 'PT Sans Caption';
+}
+
+p {
+    font-weight: 350;
+    font-family: 'PT Sans Caption';
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'PT Sans Caption';
+    overflow-x: hidden;
+    background: linear-gradient(168.04deg, #1D2154 6.97%,
+    rgba(5, 6, 19, 0.86) 93.34%);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100vw;
+    height: auto;
+}
+
+.container > * {
+    margin-inline: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.page-top-button {
+    display: none;
+}
+
+.message-status {
+    @include flex-center;
+    color: white;
+}
+
+header {
+    width: 76%;
+    height: 9em;
+    @include flex-center($justify: flex-start);
+    padding-block: 0.8em;
+    background: transparent;
+    transition: all .2s;
+
+    .logo-image {
+        width: 14em;
+        height: 7em;
+        @include flex-center;
+        margin-top: 1em;
+
+        img {
+            width: 15em;
+            height: 100%;
+        }
+
+        .img-mobile {
+            display: none;
+        }
+    }
+
+    .hamburger-menu {
+        display: none;       
+    }
+
+    .menu-list {
+        width: auto;
+        height: auto;
+        @include flex-center;
+        margin-left: auto;
+
+        .menu-list-item {
+            width: 11em;
+            height: 3.5em;
+            @include flex-center;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+
+            p {
+                font-size: $lg-txt-size;
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .menu-list > *:hover {
+        background-color: white;
+        
+        p {
+            color: black;
+        }
+    }
+}
+
+.side-menu-mobile {
+    display: none;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: rgba($color: #CBCFFD, $alpha: .9);
+    transition: all .2s;
+    width: 80%;
+    height: 6em;
+
+    .logo-image {
+        width: 14em;
+        height: 7em;
+        @include flex-center;
+        margin-top: 1em;
+        img {
+            width: 10em;
+            height: auto;
+        }
+    }
+
+    .menu-list {
+        width: auto;
+        height: auto;
+        @include flex-center;
+        margin-left: auto;
+
+        .menu-list-item {
+            width: 11em;
+            height: 3.5em;
+            @include flex-center;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+
+            p {
+                font-size: $lg-txt-size;
+                color: black;
+            }
+        }
+    }
+}
+
+.homepage {
+    width: 76%;
+    height: 60%;
+    margin-top: 7rem;
+    @include flex-center;
+
+    .homepage-left {
+        width: auto;
+        height: 100%;
+        @include flex-center($dir: column,
+        $align: flex-start);
+
+        .CTA-title {
+            width: 100%;
+            height: 13em;
+            
+            h1 {
+                font-size: 3.6em;
+                text-transform: uppercase;
+                color: white;
+            }
+        }
+    
+        .CTA-text {
+            width: 60%;
+            height: auto;
+    
+            p {
+                font-size: $lg-txt-size;
+                color: $secondary-color;
+            }
+        }
+
+        .CTA-btn {
+            background-color: white;
+            width: 15em;
+            height: 4em;
+            @include flex-center;
+            margin-top: 4em;
+            cursor: pointer;
+            transition: all 0.1s ease-in;
+
+            p {
+                color: black;
+                font-size: 1.3rem;
+                font-weight: 800;
+            }
+        }
+
+        .CTA-btn:hover {
+            background-color: transparent;
+            outline: 5px solid white;
+            
+            p {
+                color: white;
+            }
+        }
+    }
+}
+
+.services {
+    width: 76%;
+    height: auto;
+    @include flex-center;
+    margin-top: $top-margin;
+    color: white;
+
+    .services-left {
+        @include flex-center($dir: column, 
+        $align: flex-start, $justify: flex-start);
+        width: 50%;
+        height: 100%;
+
+        .services-title {
+            margin-left: 3rem;
+            font-size: $lg-title-size;
+        }
+
+        .services-text {
+            margin-left: 3rem;
+            font-size: $lg-txt-size;
+        }
+        
+        .service-panels {
+            background: linear-gradient(104.53deg, rgba(135, 140, 255, 0.42) 1.09%, rgba(90, 97, 138, 0.18) 96.55%);
+            backdrop-filter: blur(90px);
+            border-radius: 30px;
+
+            width: 100%;
+            height: auto;
+            margin-top: 3rem;
+            @include flex-center($dir: row);
+            flex-wrap: wrap;
+            gap: 4rem 2rem;
+            padding-block: 3rem;
+
+            .service {
+                background: linear-gradient(104.53deg, rgba(131, 199, 183, 0.42) 1.09%, rgba(96, 103, 140, 0.18) 96.55%);
+                box-shadow: 6px 4px 17px 5px rgba(13, 17, 38, 0.2);
+                backdrop-filter: blur(90px);
+                border-radius: 30px;
+                
+                width: 14rem;
+                height: 16rem;
+                @include flex-center($dir:column);
+
+                .service-text {
+                    width: 10ch;
+                    text-align: center;
+                    font-size: $lg-txt-size;
+                }
+            }
+        }
+    }
+
+    .services-right {
+        width: 50%;
+        height: 100%;
+
+        .truck-image-2 {
+            @include flex-center($justify: flex-end);
+
+            img {
+                width: 35rem;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.about-section {
+    width: 76%;
+    height: auto;
+    @include flex-center($dir: column, 
+    $align: flex-start);
+    margin-top: $top-margin;
+    color: white;
+
+    .about-title {
+        margin-left: 3rem;
+        font-size: $lg-title-size;
+    }
+
+    .about-panel {
+        background: linear-gradient(122.89deg, rgba(71, 66, 127, 0.7) 30.37%, rgba(149, 37, 159, 0.294) 85.77%);
+        backdrop-filter: blur(100px);
+        border-radius: 30px;
+
+        width: 50%;
+        height: auto;
+        padding-inline: 3rem;
+        padding-block: 6rem;
+        margin-top: 3rem;
+
+        line-height: 170%;
+        font-size: 18px;
+        color: #D1D5FF;
+        
+        p {
+            font-weight: 500;
+        }
+    }
+}
+
+.contact-section {
+    width: 76%;
+    height: auto;
+    @include flex-center($dir: column, 
+    $align: center);
+    margin-top: $top-margin;
+    color: white;
+
+    .contact-title {
+        font-size: $lg-title-size;
+    }
+
+    .contact-panel {
+        background: linear-gradient(122.89deg, rgba(71, 66, 127, 0.7) 30.37%, rgba(149, 37, 159, 0.294) 85.77%);
+        backdrop-filter: blur(100px);
+        border-radius: 30px;
+
+        width: 60%;
+        height: auto;
+        margin-top: 3rem;
+        padding: 4rem;
+
+        .error {
+            width: auto;
+            font-size: 1.5em;
+            margin-block: 1.5em;
+        }
+
+        input, textarea {
+            background: linear-gradient(122.89deg, rgba(105, 99, 172, 0.7) 30.37%, rgba(188, 71, 199, 0.294) 85.77%);
+            backdrop-filter: blur(100px);
+            border-radius: 30px;
+            border: none;
+            font-size: 18px;
+            color: white;
+        }
+
+        input:focus, textarea:focus {
+            background-color: white;
+            backdrop-filter: none;
+        } 
+
+        .contact-details {
+            width: 100%;
+            @include flex-center($justify: flex-start);
+            flex-wrap: wrap;
+            gap: 1.5rem 3rem;
+
+            input {
+                height: 2.5rem;
+                padding-inline: 2rem;
+            }
+
+            #subject {
+                width: 90%;
+            }
+        }
+
+        textarea {
+            width: 90%;
+            resize: none;
+            padding-inline: 2rem;
+            padding-block: 1rem;
+            margin-block: 1.5rem;
+        }
+
+        ::placeholder {
+            color: white;
+            font-family: 'PT Sans Caption';
+            font-weight: 300;
+        }
+
+        input[value="Send"] {
+            width: 13rem;
+            height: 3em;
+            background: white;
+
+            font-weight: 700;
+            color: black;
+            cursor: pointer;
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    @include flex-center($dir: column, 
+    $align: center);
+    margin-top: 35rem;
+
+    color: white;
+    background: rgba(41, 52, 92, 0.6);
+
+    .footer-container {
+        width: 76%;
+        height: auto;
+        @include flex-center($dir: column, 
+        $align: flex-start);
+        color: white;
+
+        .footer-logo {
+            margin-block: 2rem;
+
+            img {
+                width: 12rem;
+                height: 100%;
+            }
+        }
+
+        .company-details {
+            width: 100%;
+            height: auto;
+            @include flex-center($justify: flex-start);
+            font-size: 18px;
+
+            .social-media {
+
+                .social-media-links {
+                    @include flex-center($dir: row, 
+                    $justify: flex-start);
+                    gap: 2rem;
+                    margin-top: 2rem;
+                }
+            }
+
+            .contact-details-section {
+                margin-left: auto;
+                @include flex-center($dir: column);
+
+                .contact-title {
+                    margin-right: 6rem;
+                }
+
+                .contact-info {
+                    @include flex-center($dir: row, 
+                    $justify: flex-start);
+                    gap: 4rem;
+                    margin-top: 1.5rem;
+
+                    .contact-location {
+                        p {
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .contact-info > * {
+                    @include flex-center($dir: column);
+                }
+            }
+
+            .social-media-mobile {
+                display: none;
+            }
+        }
+
+        .trademark {
+            margin-block: 3rem;
+            
+            p {
+                font-size: 14px;
+                letter-spacing: .8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1800px) {
+    header  {
+        width: 70%;
+        height: 6rem;
+    }
+
+    .homepage {
+        width: 70%;
+        height: 60%;
+        margin-top: 4rem;
+
+        .CTA-title {
+            width: 100%;
+            height: 13em;
+            
+            h1 {
+                font-size: 2.5em;
+                text-transform: uppercase;
+                color: white;
+            }
+        }
+    
+        .CTA-text {
+            width: 60%;
+    
+            p {
+                font-size: $md-txt-size;
+                color: $secondary-color;
+            }
+        }
+
+        .homepage-right {
+            .truck-img-1 {
+                img {
+                    width: 30rem;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .services {
+        width: 76%;
+        height: auto;
+        @include flex-center;
+        margin-top: $top-margin;
+        color: white;
+    
+        .services-left {
+            @include flex-center($dir: column, 
+            $align: flex-start, $justify: flex-start);
+            width: 60%;
+            height: 100%;
+    
+            .services-title {
+                margin-left: 3rem;
+                font-size: $lg-title-size;
+            }
+    
+            .services-text {
+                margin-left: 3rem;
+                font-size: $lg-txt-size;
+            }
+            
+            .service-panels {
+                background: linear-gradient(104.53deg, rgba(135, 140, 255, 0.42) 1.09%, rgba(90, 97, 138, 0.18) 96.55%);
+                backdrop-filter: blur(90px);
+                border-radius: 30px;
+    
+                width: 100%;
+                height: auto;
+                margin-top: 3rem;
+                @include flex-center($dir: row);
+                flex-wrap: wrap;
+                gap: 4rem 2rem;
+                padding-block: 3rem;
+    
+                .service {
+                    background: linear-gradient(104.53deg, rgba(131, 199, 183, 0.42) 1.09%, rgba(96, 103, 140, 0.18) 96.55%);
+                    box-shadow: 6px 4px 17px 5px rgba(13, 17, 38, 0.2);
+                    backdrop-filter: blur(90px);
+                    border-radius: 30px;
+                    
+                    width: 12rem;
+                    height: 14rem;
+                    @include flex-center($dir:column);
+
+                    .service-icon {
+                        img {
+                            width: 3em;
+                            height: 100%;
+                        }
+                    }
+
+                    .service-icon2 img {
+                        width: 2em;
+                        height: 100%;
+                    }
+    
+                    .service-text {
+                        width: 10ch;
+                        text-align: center;
+                        font-size: $lg-txt-size;
+                    }
+                }
+            }
+        }
+    
+        .services-right {
+            width: 40%;
+            height: 100%;
+    
+            .truck-image-2 {
+                @include flex-center($justify: flex-end);
+                margin-top: 8em;
+    
+                img {
+                    width: 25em;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .contact-section {
+        width: 96%;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    .page-top-button {
+        display: inline-block;
+        width: 3em;
+        height: 3em;
+        position: fixed;
+        top: 90%;
+        left: 80%;
+        z-index: 40;
+        border-radius: 50%;
+        @include flex-center;
+        background-color: white;
+    }
+
+    body {
+        position: relative;
+        max-width: 100vw;
+        height: 100%;
+    }
+
+    header {
+        width: 100%;
+        height: 4.5em;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        @include flex-center($justify: flex-start);
+        padding-block: 0.8em;
+        background: rgba($color: #B2B9F8, $alpha: .4);
+
+        .logo-image {
+            width: 10em;
+            height: 5em;
+
+            img {
+                display: none;
+            }
+
+            .img-mobile {
+                display: block;
+                width: 7em;
+                height: 100%;
+            }
+        }
+
+        .hamburger-menu {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: 2em;
+        }
+
+        .menu-list {
+            display: none;
+        }
+    }
+
+    .sticky-mobile {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+    }
+
+    .side-menu-mobile {
+        display: inline-block;
+        background: linear-gradient(178.51deg, #CBCFFD 1.37%, rgba(67, 75, 183, 0.59) 98.73%);
+        backdrop-filter: blur(70px);
+        position: fixed;
+        height: 100vh;
+        width: 18em;
+        left: -18em;
+        @include flex-center($dir: column);
+        z-index: 30;
+        transition: all 0.2s ease-in-out;
+
+        .mobile-menu-list {
+            width: 10em;
+            @include flex-center($dir: column,
+            $align: flex-start);
+            row-gap: 4em;
+            margin-bottom: 10em;
+            margin-left: 4em;
+
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .side-menu-toggle {
+        left: 0;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .homepage {
+        width: 100%;
+        height: auto;
+        @include flex-center($dir: column);
+
+        .homepage-left {
+            width: auto;
+            height: 100%;
+            @include flex-center($dir: column,
+            $align: flex-start);
+            padding-inline: 2em;
+    
+            .CTA-title {
+                width: 100%;
+                height: 8em;
+                
+                h1 {
+                    font-size: 28px;
+                    text-transform: uppercase;
+                    color: white;
+                }
+            }
+        
+            .CTA-text {
+                width: 100%;
+        
+                p {
+                    font-size: 20px;
+                    color: $secondary-color;
+                }
+            }
+
+            .CTA-btn {
+                background-color: white;
+                width: 11em;
+                height: 2.8em;
+                @include flex-center;
+                align-self: center;
+                margin-top: 4em;
+                cursor: pointer;
+                transition: all 0.1s ease-in;
+    
+                p {
+                    color: black;
+                    font-size: 18px;
+                    font-weight: 800;
+                }
+            }
+        }
+        
+        .homepage-right {
+            .truck-img-1 {
+                margin-top: 5em;
+                margin-left: 3em;
+
+                img {
+                    width: 17em;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .services {
+        width: 100%;
+        height: auto;
+        @include flex-center($dir: column);
+        margin-top: 17em;
+        color: white;
+    
+        .services-left {
+            @include flex-center($dir: column, 
+            $align: center, $justify: center);
+            width: 100%;
+            height: 100%;
+    
+            .services-title {
+                width: 100%;
+                margin-left: 0;
+                text-align: center;
+                font-size: 22px;
+            }
+    
+            .services-text {
+                display: none;
+                margin-left: 2em;
+                font-size: 18px;
+            }
+            
+            .service-panels {
+                background: linear-gradient(104.53deg, rgba(135, 140, 255, 0.42) 1.09%, rgba(90, 97, 138, 0.18) 96.55%);
+                backdrop-filter: blur(90px);
+                border-radius: 30px;
+    
+                width: 75%;
+                height: auto;
+                margin-top: 4em;
+                @include flex-center($dir: column);
+                gap: 0;
+                padding-block: 1em;
+                padding-bottom: 2em;
+    
+                .service {
+                    background: none;
+                    box-shadow: none;
+                    backdrop-filter: none;
+                    border-radius: 0;
+                    
+                    width: 100%;
+                    height: 4.5em;
+                    @include flex-center($dir: row,
+                    $justify: flex-start);
+
+                    .service-icon {
+                        padding-left: 2em;
+
+                        img {
+                            width: 2em;
+                            height: 100%;
+                        }
+                    }
+
+                    .service-icon2 {
+                        height: 30px;
+                    }
+    
+                    .service-text {
+                        width: 100%;
+                        padding-inline: 2em;
+                        text-align: start;
+                        font-size: 18px;
+                        font-weight: 1000;
+                    }
+                }
+            }
+        }
+    
+        .services-right {
+            display: none;
+        }
+    }
+
+    .about-section {
+        width: 100%;
+        height: auto;
+        @include flex-center($dir: column, 
+        $align: center);
+        margin-top: 17em;
+        color: white;
+    
+        .about-title {
+            width: 100%;
+            margin-left: 0;
+            font-size: $lg-title-size;
+            text-align: center;
+            font-size: 22px;
+        }
+    
+        .about-panel {
+            background: linear-gradient(122.89deg, rgba(71, 66, 127, 0.7) 30.37%, rgba(149, 37, 159, 0.294) 85.77%);
+            backdrop-filter: blur(100px);
+            border-radius: 0;
+    
+            width: 100%;
+            height: auto;
+            padding-inline: 0;
+            padding-block: 4em;
+            margin-top: 2em;
+    
+            line-height: 170%;
+            font-size: 18px;
+            color: #D1D5FF;
+            
+            p {
+                margin-inline: 2em;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .contact-section {
+        width: 100%;
+        height: auto;
+        @include flex-center($dir: column, 
+        $align: center);
+        margin-top: 17em;
+        color: white;
+    
+        .contact-title {
+            font-size: 22px;
+        }
+    
+        .contact-panel {
+            background: linear-gradient(122.89deg, rgba(71, 66, 127, 0.7) 30.37%, rgba(149, 37, 159, 0.294) 85.77%);
+            backdrop-filter: blur(100px);
+            border-radius: 0;
+    
+            width: 100%;
+            height: auto;
+            margin-top: 1em;
+            padding: 3em;
+            @include flex-center($dir: column)
+
+            form {
+                @include flex-center($dir: column)
+            }
+    
+            input, textarea {
+                background: linear-gradient(122.89deg, rgba(105, 99, 172, 0.7) 30.37%, rgba(188, 71, 199, 0.294) 85.77%);
+                backdrop-filter: blur(100px);
+                border-radius: 30px;
+                border: none;
+                font-size: 18px;
+                color: white;
+            }
+    
+            .contact-details {
+                width: 100%;
+                @include flex-center($justify: center);
+                flex-wrap: wrap;
+                gap: 1.5rem 3rem;
+    
+                input {
+                    width: 14em;
+                    height: 2.5em;
+                }
+    
+                #subject {
+                    width: 14em;
+                }
+            }
+    
+            textarea {
+                width: 14em;
+                resize: none;
+                padding-inline: 2rem;
+                padding-block: 1rem;
+                margin-block: 1.5rem;
+            }
+    
+            ::placeholder {
+                color: white;
+                font-family: 'PT Sans Caption';
+                font-weight: 300;
+            }
+    
+            input[value="Send"] {
+                width: 17em;
+                height: 3em;
+                background: white;
+    
+                font-weight: 700;
+                color: black;
+                cursor: pointer;
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        height: auto;
+        @include flex-center($dir: column, 
+        $align: center);
+        margin-top: 10em;
+    
+        color: white;
+        background: rgba(41, 52, 92, 0.6);
+    
+        .footer-container {
+            width: 100%;
+            height: auto;
+            @include flex-center($dir: column, 
+            $align: flex-start);
+            color: white;
+    
+            .footer-logo {
+                display: none;
+                margin-block: 2rem;
+    
+                img {
+                    width: 12rem;
+                    height: 100%;
+                }
+            }
+    
+            .company-details {
+                width: 100%;
+                height: auto;
+                @include flex-center($dir: column, 
+                $justify: flex-start, $align: flex-start);
+                font-size: 18px;
+                padding-left: 2.5em;
+                margin-top: 1.5em;
+    
+                .social-media {
+                    display: none;
+    
+                    .social-media-links {
+                        @include flex-center($dir: row, 
+                        $justify: flex-start);
+                        gap: 2rem;
+                        margin-top: 2rem;
+                    }
+                }
+    
+                .contact-details-section {
+                    width: auto;
+                    margin-left: 0;
+                    @include flex-center($dir: column,
+                    $align: flex-start);
+    
+                    .contact-title {
+                        font-size: 20px;
+                    }
+    
+                    .contact-info {
+                        @include flex-center($dir: column, 
+                        $justify: flex-start, $align: flex-start);
+                        gap: 2em;
+                        margin-top: 1em;
+    
+                        .contact-location {
+                            p {
+                                text-align: start;
+                            }
+                        }
+                    }
+    
+                    .contact-info > * {
+                        @include flex-center($dir: row);
+                        font-size: 16px;
+
+                        p {
+                            margin-left: 2em;
+                        }
+
+                        img {
+                            width: 1.5em;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                .social-media-mobile {
+                    display: inline-block;
+                    margin-top: 1.5em;
+
+                    .social-media-links {
+                        @include flex-center($dir: row, 
+                        $justify: flex-start);
+                        gap: 2rem;
+                        margin-top: 2rem;
+
+                        img {
+                            width: 1.7em;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+    
+            .trademark {
+                margin-block: 2em;
+                padding-left: 2.5em;
+                
+                p {
+                    font-size: 12px;
+                    letter-spacing: .8px;
+                }
+            }
+        }
+    }
+}
